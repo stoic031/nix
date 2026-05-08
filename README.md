@@ -12,22 +12,23 @@ Personal macOS system configuration managed with [nix-darwin](https://github.com
 | [Determinate Installer](https://determinate.systems) | Nix installation |
 
 ## 🗂️ Structure
+```text
 .
-├── flake.nix # Entry point
+├── flake.nix
 ├── hosts/
-│ └── mac/
-│ └── default.nix # macOS system config (dock, finder, homebrew...)
+│   └── mac/
+│       └── default.nix
 └── home/
-├── default.nix # Home-manager entry point
-├── shell.nix # Zsh, aliases, starship
-├── git.nix # Git + delta
-├── neovim.nix # Neovim + LSP tools
-├── tmux.nix # Tmux
-├── packages.nix # CLI packages
-└── terminal/
-├── options.nix # Custom options (terminal, font, opacity)
-└── default.nix # Ghostty config
-
+    ├── default.nix
+    ├── shell.nix
+    ├── git.nix
+    ├── neovim.nix
+    ├── tmux.nix
+    ├── packages.nix
+    └── terminal/
+        ├── options.nix
+        └── default.nix
+```
 ## 🚀 Installation
 
 ### 1. Install Nix (Determinate)
