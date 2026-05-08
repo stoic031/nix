@@ -40,7 +40,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 ### 2. Clone the repo
 
 ```bash
-git clone <your-repo-url> ~/.config/nix
+git clone https://github.com/stoic031/nix.git ~/.config/nix
 cd ~/.config/nix
 ```
 
