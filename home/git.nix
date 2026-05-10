@@ -14,6 +14,7 @@
     enable  = true;
     ignores = [ ".DS_Store" ".direnv" ".envrc" "*.swp" ".idea/" ];
 
+
     settings = {
       user = {
         name  = "Andy Nguyen";   # ← thay userName

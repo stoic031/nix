@@ -11,7 +11,9 @@ in {
       font-family = cfg.font.name;
     } // lib.optionalAttrs (cfg.font.size != null) {
       font-size = cfg.font.size;
-    }; 
+    } // lib.optionalAttrs (cfg.theme != null) {
+        theme = cfg.theme;
+      };
 
 
   };

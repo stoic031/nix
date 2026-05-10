@@ -17,6 +17,12 @@
       };
     };
 
+
+      theme = lib.mkOption {
+          type  = lib.types.nullOr lib.types.str;
+          default = null;
+        };
+
     opacity = lib.mkOption {
       type    = lib.types.float;
       default = 0.95;
