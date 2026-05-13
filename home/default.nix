@@ -19,29 +19,9 @@
   ./git.nix
   ./packages.nix
   ];
+
+  home.activation.runSetup = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    $DRY_RUN_CMD ${pkgs.bash}/bin/bash ${../scripts/setup.sh}
+  '';
   
-  home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    DOTFILES_DIR="$HOME/dotfiles"
-    if [ ! -d "$DOTFILES_DIR" ]; then
-      $DRY_RUN_CMD ${pkgs.git}/bin/git clone \
-        --depth=1 \
-        https://github.com/stoic031/dotfiles \
-        "$DOTFILES_DIR"
-    else
-      $VERBOSE_ECHO "Dotfiles already exist, skipping"
-    fi
-  '';
-
-
-  home.activation.installTpm = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    TPM_DIR="$HOME/.tmux/plugins/tpm"
-    if [ ! -d "$TPM_DIR" ]; then
-      $DRY_RUN_CMD ${pkgs.git}/bin/git clone \
-        --depth=1 \
-        https://github.com/tmux-plugins/tpm \
-        "$TPM_DIR"
-    else
-      $VERBOSE_ECHO "TPM already installed, skipping"
-    fi
-  '';
 }

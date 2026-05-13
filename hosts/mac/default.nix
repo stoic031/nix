@@ -27,6 +27,11 @@
       AppleShowAllFiles = true;       
       ShowPathbar = true;
     };
+    CustomUserPreferences = {
+      "org.hammerspoon.Hammerspoon" = {
+        MJConfigFile = "~/.config/hammerspoon/init.lua";
+      };
+    };
   };
 
   homebrew = {
@@ -35,6 +40,7 @@
       autoUpdate = true;
       cleanup = "zap";  
     };
+    casks = ["hammerspoon"];
   };
 
   system.stateVersion = 5;
