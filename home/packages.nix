@@ -1,6 +1,6 @@
 { pkgs, ... } : {
   home.packages = with pkgs; [
-    ripgrep fd fzf jq awscli2 eza unzip zoxide delta dust starship neovim bat tmux stow
+    ripgrep fd fzf jq awscli2 eza unzip zoxide delta dust starship neovim bat tmux stow luajit luajitPackages.luarocks tree-sitter prettier nixfmt
   ]++ pkgs.lib.optionals pkgs.stdenv.isDarwin [ 
     mas 
  
