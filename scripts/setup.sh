@@ -3,7 +3,9 @@
 set -e
 
 DOTFILES_DIR="$HOME/dotfiles"
-DOTFILES_CONFIG_DIR="$DOTFILES_DIR/.config"
+DOTFILES_DIR_COMMON="$DOTFILES_DIR/common"
+DOTFILES_DIR_MACOS="$DOTFILES_DIR/macos"
+DOTFILES_DIR_LINUX="$DOTFILES_DIR/nixos"
 GITHUB_URL="https://github.com/stoic031/dotfiles.git"
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
@@ -25,7 +27,7 @@ else
   BRANCH="nixos"
 fi
 
-log "Detected OS: $BRANCH"
+log "Detected OS: $(uname -s)"
 
 log "Checking dotfiles..."
 if [ ! -d "$DOTFILES_DIR" ]; then
@@ -36,8 +38,18 @@ else
 fi
 
 log "Stowing configs..."
-cd "$DOTFILES_CONFIG_DIR"
-stow . --target="$HOME/.config/" --adopt
+cd "$DOTFILES_DIR_COMMON"
+stow . --target="$HOME" --adopt
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  log "Stowing config Macos"
+  cd "$DOTFILES_DIR_MACOS"
+  stow . --target="$HOME/.config" --adopt
+else
+  log "Stowing config Linux"
+  cd "$DOTFILES_DIR_LINUX"
+  stow . --target="$HOME/.config" --adopt
+
+fi
 
 log "Checking TPM..."
 if [ ! -d "$TPM_DIR" ]; then
