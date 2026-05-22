@@ -32,6 +32,10 @@
           path = ./templates/rust;
           description = "Rust dev shell";
         };
+        python = {
+          path = ./templates/python;
+          description = "Python dev shell"
+        }
       };
 
       # ── Mac ──────────────────────────────────────────
