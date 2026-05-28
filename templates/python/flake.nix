@@ -4,7 +4,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = {
+  outputs =
     {
       self,
       nixpkgs,
@@ -18,17 +18,20 @@
           config.allowUnfree = true;
         };
 
-        pythonEnv = pkgs.python312.withPackages (ps: with ps; [
-          pip
-          virtualenv
-          ipython
-          numpy
-        ]);
+        pythonEnv = pkgs.python312.withPackages (
+          ps: with ps; [
+            pip
+            virtualenv
+            ipython
+            numpy
+          ]
+        );
       in
       {
         devShells.default = pkgs.mkShell {
           packages = [
             pythonEnv
+            pkgs.uv
             pkgs.zlib
           ];
 
@@ -45,7 +48,6 @@
             source .venv/bin/activate
           '';
         };
-      };
+      }
     );
-  };
 }

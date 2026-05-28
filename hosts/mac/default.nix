@@ -17,6 +17,10 @@
     git
     curl
     wget
+    docker
+    docker-compose
+    lazydocker
+    colima
   ];
 
   system.defaults = {

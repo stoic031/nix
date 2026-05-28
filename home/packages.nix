@@ -25,6 +25,7 @@
       nixfmt
       nodejs
       cspell
+
     ]
     ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
       mas

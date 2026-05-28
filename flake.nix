@@ -34,8 +34,12 @@
         };
         python = {
           path = ./templates/python;
-          description = "Python dev shell"
-        }
+          description = "Python dev shell";
+        };
+        tauri = {
+          path = ./templates/tauri;
+          description = "Tauri dev shell";
+        };
       };
 
       # ── Mac ──────────────────────────────────────────
