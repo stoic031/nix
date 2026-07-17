@@ -47,13 +47,16 @@ cd ~/.config/nix
 ### 3. Bootstrap nix-darwin (first time only)
 
 ```bash
-nix run nix-darwin -- switch --flake ~/.config/nix#Andys-MacBook-Pro
+# Replace <YOUR_HOSTNAME> with your actual hostname
+# Find your hostname by running: scutil --get LocalHostName
+nix run nix-darwin -- switch --flake ~/.config/nix#<YOUR_HOSTNAME>
 ```
 
 ### 4. Apply changes (subsequent runs)
 
 ```bash
-darwin-rebuild switch --flake ~/.config/nix#Andys-MacBook-Pro
+# Replace <YOUR_HOSTNAME> with your actual hostname
+darwin-rebuild switch --flake ~/.config/nix#<YOUR_HOSTNAME>
 # or using the shell alias
 rebuild
 ```
@@ -66,8 +69,8 @@ Update `home/git.nix`:
 
 ```nix
 settings = {
-  user.name  = "Your Name";
-  user.email = "your@email.com";
+  user.name  = "<YOUR_NAME>";
+  user.email = "<YOUR_EMAIL>";
 };
 ```
 
@@ -124,4 +127,4 @@ darwin-rebuild switch --rollback
 |---|---|
 | **Model** | MacBook Pro (Apple Silicon) |
 | **Arch** | `aarch64-darwin` |
-| **Hostname** | `Andys-MacBook-Pro` |
+| **Hostname** | `<YOUR_HOSTNAME>` (run `scutil --get LocalHostName` to find yours) |
