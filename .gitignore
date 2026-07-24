@@ -1,1 +1,31 @@
-Nothing needs to be added to .gitignore since only a README.md file was modified and no build artifacts, dependencies, or temporary files were detected in the changes.
+result
+*.drv
+*.nixd
+
+# Temporary files
+*.tmp
+*.swp
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Build artifacts (if any)
+dist/
+build/
+target/
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
