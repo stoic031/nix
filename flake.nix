@@ -71,7 +71,6 @@
           {
             nix-homebrew = {
               enable = true;
-              autoUpdate = true;
               user = "andy";
             };
 

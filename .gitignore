@@ -1,15 +1,14 @@
 ```
 # Nix-related
-result
-*.drv
-*.nixd
+.result
+.nix-*
+!flake.nix
+!flake.lock
 
-# Temporary files
+# Logs and temp files
+*.log
 *.tmp
 *.swp
-
-# Logs
-*.log
 
 # Environment
 .env
@@ -20,15 +19,27 @@ result
 .vscode/
 .idea/
 
-# Build artifacts (if any)
+# Dependencies
+.npm/
+node_modules/
+__pycache__/
+*.egg-info/
+.Python
+.venv/
+venv/
+.envrc
+
+# Build artifacts
 dist/
 build/
 target/
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
 
-# Dependencies
-node_modules/
-.venv/
-venv/
-__pycache__/
-*.pyc
+# OS generated
+.DS_Store
+Thumbs.db
 ```
