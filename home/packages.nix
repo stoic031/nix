@@ -1,39 +1,41 @@
 { pkgs, ... }:
 {
-  home.packages =
-    with pkgs;
-    [
-      ripgrep
-      fd
-      fzf
-      jq
-      awscli2
-      eza
-      unzip
-      zoxide
-      delta
-      dust
-      starship
-      neovim
-      bat
-      tmux
-      stow
-      luajit
-      luajitPackages.luarocks
-      tree-sitter
-      prettier
-      nixfmt
-      nodejs
-      cspell
+  home.packages = with pkgs; [
+    # File utilities
+    ripgrep
+    fd
+    fzf
+    jq
+    eza
+    unzip
+    zoxide
 
-    ]
-    ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
-      mas
+    # Development tools
+    delta
+    dust
+    starship
+    neovim
+    bat
+    tmux
+    stow
 
-    ]
-    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
-      xclip
-      htop
-    ];
+    # Lua & Tree-sitter
+    luajit
+    luajitPackages.luarocks
+    tree-sitter
 
+    # Web development
+    prettier
+    nixfmt-classic
+    nodejs
+    cspell
+
+    # Cloud
+    awscli2
+  ] ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
+    mas
+  ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+    xclip
+    htop
+  ];
 }

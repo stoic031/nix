@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 DOTFILES_DIR="$HOME/dotfiles"
 DOTFILES_DIR_COMMON="$DOTFILES_DIR/common"
@@ -40,15 +40,15 @@ fi
 log "Stowing configs..."
 cd "$DOTFILES_DIR_COMMON"
 stow . --target="$HOME" --adopt
+
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  log "Stowing config Macos"
+  log "Stowing macOS configs"
   cd "$DOTFILES_DIR_MACOS"
   stow . --target="$HOME/.config" --adopt
 else
-  log "Stowing config Linux"
+  log "Stowing Linux configs"
   cd "$DOTFILES_DIR_LINUX"
   stow . --target="$HOME/.config" --adopt
-
 fi
 
 log "Checking TPM..."

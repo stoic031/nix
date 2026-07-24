@@ -5,15 +5,8 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      flake-utils,
-      rust-overlay,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
+  outputs = { self, nixpkgs, flake-utils, rust-overlay }:
+    flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
           inherit system;
@@ -33,19 +26,16 @@
             rustToolchain
             nodejs_22
             pnpm
-
             cargo-tauri
-
             just
             cargo-watch
             pkg-config
-
             sqlite
             sqlite.dev
             openssl
             openssl.dev
-
           ];
+
           shellHook = ''
             export RUST_SRC_PATH="${rustToolchain}/lib/rustlib/src/rust/library"
             export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.sqlite.dev}/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -59,8 +49,7 @@
             echo "🐋 Docker: $(docker --version 2>/dev/null || echo '✅ System Docker detected')"
             echo ""
             echo "💡 Install Tauri CLI khi sẵn sàng: cargo install tauri-cli --locked"
-            echo "💡 Run tasks với: just <command>" 
-
+            echo "💡 Run tasks với: just <command>"
           '';
         };
       }

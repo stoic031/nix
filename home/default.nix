@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ lib, config, pkgs, ... }:
 {
   home.username = "andy";
   home.homeDirectory = "/Users/andy";
@@ -29,5 +24,4 @@
     export PATH="${pkgs.git}/bin:${pkgs.stow}/bin:${pkgs.bash}/bin:$PATH"
     $DRY_RUN_CMD ${pkgs.bash}/bin/bash ${../scripts/setup.sh}
   '';
-
 }
